@@ -4,7 +4,7 @@ const autenticar = (req, res, next) => {
   const authHeader = req.headers.authorization;
 
   if (!authHeader) {
-    return res.status(401).send({ mensagem: "Token não fornecido!" });
+    return res.status(401).send({ mensagem: "O token não foi fornecido!" });
   }
 
   const token = authHeader.split(" ")[1];
@@ -19,7 +19,7 @@ const autenticar = (req, res, next) => {
     req.userPlano = decoded.plano;
     next();
   } catch (error) {
-    return res.status(401).send({ mensagem: "Token inválido ou expirado!" });
+    return res.status(401).send({ mensagem: "Esse token é inválido ou está expirado!" });
   }
 };
 
