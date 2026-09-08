@@ -2,6 +2,7 @@ import express from "express";
 import bcrypt from "bcryptjs";
 import jwt from "jsonwebtoken";
 import bd from "../config/firebase.js";
+import autenticar from "../middlewares/auth.js";
 
 const router = express.Router();
 const usuariosRef = bd.collection("usuarios")
@@ -60,5 +61,14 @@ router.post("/login", async (req, res) => {
     res.status(500).send({ mensagem: "Erro ao fazer login", erro: error.message });
   }
 });
+
+router.put("/assinar", autenticar, async (req, res) =>{
+  try{
+    await usuariosRef.doc(req.userId).update({ plano: "premium" });
+    res.status(200).send({ mensagem: "Plano atualizado para premium" })
+  }catch (error) {
+    res.status(500).send({ mensagem: "Erro ao assinar plano", erro:error.message });
+  }
+})
 
 export default router;

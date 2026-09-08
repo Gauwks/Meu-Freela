@@ -41,8 +41,26 @@ router.post("/", autenticar, async (req, res) => {
             id: novoCliente, nome, email, telefone
         });
     } catch (error){
-        res.status(500).send({mensagem: "Erro ao cadastrar cliente!", erro: error.message});
+        res.status(500).send({mensagem: "Falha ao cadastrar cliente!", erro: error.message});
     }
 
 });
+
+
+router.delete("/:id", autenticar, async (req, res) => {
+    try{
+        const {id} = req.params;
+        const clienteDoc = await clientesRef.doc(id).get();
+
+        if(!clienteDoc.exists || clienteDoc.data().userId !== req.userId){
+            return res.status(404).send({menssagem: "Cliente não encontrado!"});
+        }
+        await clientesRef.doc(id).delete();
+        res.status(200).send({mensagem: "Cliente deletado!"});
+    } catch (error){
+       res.status(500).send({mensagem: "Falha ao deletar cliente!", erro: error.message})
+    }
+});
+
+export default router;
 
