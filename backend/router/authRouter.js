@@ -56,7 +56,7 @@ router.post("/login", async (req, res) => {
       { expiresIn: "7d" }
     );
 
-    res.status(200).send({ token, nome: usuario.nome, plano: usuario.plano });
+    res.status(200).send({ token, usuario: { nome: usuario.nome, plano: usuario.plano } });
   } catch (error) {
     res.status(500).send({ mensagem: "Erro ao fazer login", erro: error.message });
   }

@@ -17,7 +17,7 @@ router.get("/", autenticar, async(req, res) => {
         const projetos = snapshot.docs.map(doc => ({id: doc.id, ...doc.data()}));
         res.status(200).send(projetos);
     } catch (error){
-        res.status(500).send({menssagem: "Falha ao buscar projetos", erro: error.message});
+        res.status(500).send({mensagem: "Falha ao buscar projetos", erro: error.message});
     }
 });
 
@@ -35,9 +35,9 @@ router.post("/", autenticar, async (req, res) => {
             dataCriacao: new Date()
         });
 
-        res.status(201).send({id: novoProjeto.id, titulo, valor, staus: "em_andamento"});
+        res.status(201).send({id: novoProjeto.id, titulo, valor, status: "em_andamento"});
     } catch (error){
-        res.status(500).send({menssagem: "Falha ao cadastrar projeto", erro: error.message});
+        res.status(500).send({mensagem: "Falha ao cadastrar projeto", erro: error.message});
     }
 });
 

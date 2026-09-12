@@ -27,7 +27,7 @@ const Header = () =>{
         }> Cliente </NavLink>
 
         <NavLink to="/projetos" className={({isActive})=>
-           isActive ? "nav-link" : "links"
+           isActive ? "nav-link active" : "links"
         }> Projetos </NavLink>
          </nav>
 

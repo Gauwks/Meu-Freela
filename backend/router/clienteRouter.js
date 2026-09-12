@@ -21,8 +21,8 @@ router.post("/", autenticar, async (req, res) => {
     try{
         const {nome, email, telefone} = req.body;
 
-        if (req.planoUsuario === "free"){
-            const snapshot = await clientes.Ref.where("userId", "==", req.userId).get();
+        if (req.userPlano === "free"){
+            const snapshot = await clientesRef.where("userId", "==", req.userId).get();
            if(snapshot.size >=3){
             return res.status(403).send({
                 mensagem: "Você atingiu o limite de clientes. Assine nosso plano para uso ilimitado!"
@@ -53,7 +53,7 @@ router.delete("/:id", autenticar, async (req, res) => {
         const clienteDoc = await clientesRef.doc(id).get();
 
         if(!clienteDoc.exists || clienteDoc.data().userId !== req.userId){
-            return res.status(404).send({menssagem: "Cliente não encontrado!"});
+            return res.status(404).send({mensagem: "Cliente não encontrado!"});
         }
         await clientesRef.doc(id).delete();
         res.status(200).send({mensagem: "Cliente deletado!"});
