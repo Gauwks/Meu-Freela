@@ -1,0 +1,9 @@
+.navbar { display: flex; align-items: center; gap: 16px; flex-wrap: wrap; background: #131119; padding: 14px clamp(16px, 4vw, 30px); border-bottom: 1px solid #2b2735; }
+.nav-logo { color: #f1eef9; font-size: 18px; font-weight: 700; margin-right: auto; }
+.links { display: flex; align-items: center; gap: 4px; flex-wrap: wrap; }
+.links a { color: #a79fc2; padding: 8px 12px; border-radius: 5px; text-decoration: none; }
+.links a:hover, .nav-link.active { background: #8b5cf6; color: #fff; }
+.nav-user { display: flex; align-items: center; gap: 10px; color: #a79fc2; }
+.botao-logout { background: transparent; color: #8fa0e8; border: 1px solid #5b6ea8; border-radius: 5px; padding: 7px 12px; cursor: pointer; }
+.botao-logout:hover { background: #5b6ea8; color: #fff; }
+@media (max-width: 600px) { .navbar { align-items: stretch; } .nav-logo { flex-basis: 100%; margin-right: 0; } .links, .nav-user { width: 100%; } .links a { flex: 1; text-align: center; } .nav-user { justify-content: space-between; } }

@@ -1,0 +1,14 @@
+.page { width: min(100%, 1000px); box-sizing: border-box; margin: 0 auto; padding: clamp(24px, 5vw, 40px) clamp(16px, 4vw, 30px); }
+.header-page { margin-bottom: 24px; }
+.primary-button, .button-primary { background: #8b5cf6; color: #fff; border: 0; border-radius: 5px; padding: 12px 20px; font-size: 15px; cursor: pointer; }
+.primary-button:hover, .button-primary:hover { background: #7c3aed; }
+.form-cliente { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 10px; margin-bottom: 20px; }
+.form-cliente input { width: 100%; min-width: 0; box-sizing: border-box; background: #131119; border: 1px solid #2b2735; color: #f1eef9; border-radius: 5px; padding: 12px; font: inherit; }
+.form-cliente .primary-button { white-space: nowrap; }
+.mensagem-sucesso, .mensagem-erro { color: #fff; border-radius: 5px; padding: 10px; margin: 10px 0; }
+.mensagem-sucesso { background: #6fae8f; } .mensagem-erro { background: #d97a86; }
+.lista-clientes { display: grid; grid-template-columns: repeat(auto-fit, minmax(min(100%, 220px), 1fr)); gap: 15px; }
+.card-cliente { min-width: 0; box-sizing: border-box; background: #17151f; border: 1px solid #2b2735; border-radius: 8px; padding: 18px; overflow-wrap: anywhere; }
+.card-cliente p { color: #746c8c; font-size: 13px; }
+.vazio { grid-column: 1 / -1; border: 1px dashed #2b2735; border-radius: 8px; padding: clamp(24px, 8vw, 40px); text-align: center; color: #746c8c; }
+@media (max-width: 640px) { .form-cliente { grid-template-columns: 1fr; } .form-cliente .primary-button { width: 100%; } }

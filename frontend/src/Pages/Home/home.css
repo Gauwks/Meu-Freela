@@ -1,0 +1,10 @@
+.home-page { width: min(100%, 1000px); box-sizing: border-box; margin: 0 auto; padding: clamp(24px, 5vw, 40px) clamp(16px, 4vw, 30px); }
+.header-page { margin-bottom: 30px; }
+.header-page h1 { overflow-wrap: anywhere; }
+.stats-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(min(100%, 200px), 1fr)); gap: 15px; }
+.stat-card, .home-section { background: #17151f; border: 1px solid #2b2735; border-radius: 8px; padding: 20px; }
+.stat-card { border-left: 3px solid #8b5cf6; min-width: 0; }
+.stat-label { color: #746c8c; font-size: 13px; display: block; }
+.stat-card strong { color: #f1eef9; font-size: clamp(24px, 7vw, 28px); display: block; margin: 8px 0; }
+.stat-card small, .home-section p { color: #746c8c; font-size: 12px; }
+.home-section { grid-column: 1 / -1; margin-top: 0; }
