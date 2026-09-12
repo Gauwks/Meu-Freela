@@ -1,11 +1,13 @@
+import { Link } from "react-router-dom";
 import { useAuth } from "../../Context/AuthContext";
 import "./home.css";
 
-const Home = () =>{
+const Home = () => {
 
-    const {usuario} = useAuth();
+    const { usuario } = useAuth();
+    const ehPremium = usuario?.plano === "premium";
 
-    return(
+    return (
         <section className="home-page">
             <div className="header-page">
                 <div>
@@ -26,16 +28,21 @@ const Home = () =>{
                     <small>Em andamento</small>
                 </div>
 
-                 <div className="stat-card">
+                <div className="stat-card">
                     <span className="stat-label">Projetos Concluídos</span>
                     <strong>0</strong>
                     <small>Finalizados</small>
                 </div>
 
-                 <div className="stat-card">
+                <div className="stat-card">
                     <span className="stat-label">Plano Atual</span>
                     <strong>{usuario?.plano || "free"}</strong>
                     <small>Plano</small>
+                    {!ehPremium && (
+                        <Link to="/planos" className="botao-assinar">
+                            Ver planos
+                        </Link>
+                    )}
                 </div>
 
                 <div className="home-section">

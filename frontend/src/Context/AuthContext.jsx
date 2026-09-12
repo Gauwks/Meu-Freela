@@ -20,8 +20,16 @@ export const AuthProvider = ({ children }) => {
     setUsuario(null);
   };
 
+  const atualizarUsuario = (dadosParciais) => {
+    setUsuario((usuarioAtual) => {
+      const usuarioAtualizado = { ...usuarioAtual, ...dadosParciais };
+      localStorage.setItem("usuario", JSON.stringify(usuarioAtualizado));
+      return usuarioAtualizado;
+    });
+  };
+
   return (
-    <AuthContext.Provider value={{ usuario, login, logout }}>
+    <AuthContext.Provider value={{ usuario, login, logout, atualizarUsuario }}>
       {children}
     </AuthContext.Provider>
   );

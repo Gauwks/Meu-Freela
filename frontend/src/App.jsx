@@ -7,6 +7,7 @@ import Cadastro from "./Pages/Cadastro/cadastro";
 import Home from "./Pages/Home/home";
 import Clientes from "./Pages/Clientes/clientes";
 import Projetos from "./Pages/Projetos/projetos";
+import Planos from "./Pages/Planos/planos";
 import "./App.css";
 
 function App() {
@@ -22,6 +23,7 @@ function App() {
               <Route path="/home" element={<Home />} />
               <Route path="/clientes" element={<Clientes />} />
               <Route path="/projetos" element={<Projetos />} />
+              <Route path="/planos" element={<Planos />} />
             </Route>
           </Route>
 

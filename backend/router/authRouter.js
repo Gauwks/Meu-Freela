@@ -64,8 +64,15 @@ router.post("/login", async (req, res) => {
 
 router.put("/assinar", autenticar, async (req, res) =>{
   try{
-    await usuariosRef.doc(req.userId).update({ plano: "premium" });
-    res.status(200).send({ mensagem: "Plano atualizado para premium" })
+    const { plano } = req.body;
+    const planosValidos = ["basico", "premium"];
+
+    if (!planosValidos.includes(plano)) {
+      return res.status(400).send({ mensagem: "Plano inválido" });
+    }
+
+    await usuariosRef.doc(req.userId).update({ plano });
+    res.status(200).send({ mensagem: `Plano atualizado para ${plano}`, plano })
   }catch (error) {
     res.status(500).send({ mensagem: "Erro ao assinar plano", erro:error.message });
   }

@@ -7,7 +7,7 @@ const clientesRef = bd.collection("clientes");
 
 router.get("/", autenticar, async (req, res) => {
  try{
-     const snapshot = await clientesRef.where("userID", "==", req.userId).get();
+     const snapshot = await clientesRef.where("userId", "==", req.userId).get();
      const clientes = snapshot.docs.map(doc => ({ id: doc.id, ...doc.data()}));
      res.status(200).send(clientes);
  } catch (error){
@@ -21,11 +21,12 @@ router.post("/", autenticar, async (req, res) => {
     try{
         const {nome, email, telefone} = req.body;
 
-        if (req.userPlano === "free"){
+        if (req.userPlano !== "premium"){
+            const limite = req.userPlano === "basico" ? 10 : 3;
             const snapshot = await clientesRef.where("userId", "==", req.userId).get();
-           if(snapshot.size >=3){
+           if(snapshot.size >= limite){
             return res.status(403).send({
-                mensagem: "Você atingiu o limite de clientes. Assine nosso plano para uso ilimitado!"
+                mensagem: `Você atingiu o limite de ${limite} clientes do seu plano. Assine um plano superior para cadastrar mais.`
             });
            } 
         }

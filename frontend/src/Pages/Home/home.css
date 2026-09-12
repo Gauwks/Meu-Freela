@@ -8,3 +8,6 @@
 .stat-card strong { color: #f1eef9; font-size: clamp(24px, 7vw, 28px); display: block; margin: 8px 0; }
 .stat-card small, .home-section p { color: #746c8c; font-size: 12px; }
 .home-section { grid-column: 1 / -1; margin-top: 0; }
+
+.botao-assinar { margin-top: 10px; display: inline-block; background: #8b5cf6; color: #fff; border: none; border-radius: 5px; padding: 8px 14px; font-size: 13px; cursor: pointer; text-decoration: none; }
+.botao-assinar:hover { background: #7c3aed; text-decoration: none; }
