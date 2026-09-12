@@ -28,10 +28,10 @@
 
 .form-checkout { display: flex; flex-direction: column; }
 .form-checkout label { color: #a79fc2; font-size: 13px; margin-top: 10px; }
-.form-checkout input { background: #0b0a10; border: 1px solid #2b2735; color: #f1eef9; border-radius: 5px; padding: 10px; margin-top: 5px; }
+.form-checkout input { width: 100%; box-sizing: border-box; background: #0b0a10; border: 1px solid #2b2735; color: #f1eef9; border-radius: 5px; padding: 10px; margin-top: 5px; }
 
 .linha-checkout { display: flex; gap: 10px; }
-.linha-checkout > div { flex: 1; }
+.linha-checkout > div { flex: 1; min-width: 0; }
 
 .botoes-checkout { display: flex; gap: 10px; margin-top: 20px; }
 .botao-cancelar { flex: 1; background: transparent; color: #a79fc2; border: 1px solid #2b2735; border-radius: 5px; padding: 10px; cursor: pointer; }

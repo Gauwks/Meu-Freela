@@ -1,7 +1,44 @@
 .page { width: min(100%, 1000px); box-sizing: border-box; margin: 0 auto; padding: clamp(24px, 5vw, 40px) clamp(16px, 4vw, 30px); }
-.header { display: flex; align-items: center; justify-content: space-between; gap: 16px; margin-bottom: 30px; }
+.header { display: flex; align-items: center; justify-content: space-between; gap: 16px; margin-bottom: 30px; flex-wrap: wrap; }
 .header h1 { margin-bottom: 8px; } .header p { color: #746c8c; }
 .button-primary { background: #8b5cf6; color: #fff; border: 0; border-radius: 5px; padding: 12px 20px; font-size: 15px; cursor: pointer; white-space: nowrap; }
 .button-primary:hover { background: #7c3aed; }
 .espaco-vazio { border: 1px dashed #2b2735; border-radius: 8px; padding: clamp(24px, 8vw, 40px); text-align: center; color: #746c8c; }
+
+.mensagem-sucesso { background: rgba(111, 174, 143, 0.12); color: #6fae8f; border-radius: 5px; padding: 10px; margin-bottom: 16px; }
+.mensagem-erro { background: rgba(217, 122, 134, 0.12); color: #d97a86; border-radius: 5px; padding: 10px; margin-bottom: 16px; }
+
+.lista-projetos { display: grid; grid-template-columns: repeat(auto-fill, minmax(min(100%, 240px), 1fr)); gap: 15px; }
+.card-projeto { background: #17151f; border: 1px solid #2b2735; border-radius: 8px; padding: 18px; min-width: 0; }
+.card-projeto p { color: #746c8c; font-size: 13px; overflow-wrap: anywhere; }
+.valor-projeto { color: #f1eef9 !important; font-weight: 600; font-size: 16px !important; }
+
+.cabecalho-card-projeto { display: flex; align-items: flex-start; justify-content: space-between; gap: 8px; }
+.cabecalho-card-projeto h3 { margin: 0; overflow-wrap: anywhere; }
+
+.status-projeto { flex-shrink: 0; font-size: 11px; font-weight: 600; padding: 3px 8px; border-radius: 999px; white-space: nowrap; }
+.status-em_andamento { background: rgba(91, 110, 168, 0.16); color: #5b6ea8; }
+.status-concluido { background: rgba(111, 174, 143, 0.12); color: #6fae8f; }
+
+.acoes-projeto { display: flex; flex-wrap: wrap; gap: 8px; margin-top: 14px; }
+.botao-concluir { background: transparent; color: #6fae8f; border: 1px solid #6fae8f; border-radius: 5px; padding: 7px 12px; font-size: 12.5px; cursor: pointer; }
+.botao-concluir:hover { background: rgba(111, 174, 143, 0.12); }
+.botao-excluir { background: transparent; color: #d97a86; border: 1px solid #d97a86; border-radius: 5px; padding: 7px 12px; font-size: 12.5px; cursor: pointer; }
+.botao-excluir:hover { background: rgba(217, 122, 134, 0.12); }
+
+.modal-fundo { position: fixed; inset: 0; background: rgba(11, 10, 16, 0.7); display: flex; align-items: center; justify-content: center; padding: 16px; z-index: 20; }
+.modal-projeto { width: 100%; max-width: 380px; max-height: 90vh; overflow-y: auto; background: #17151f; border: 1px solid #2b2735; border-radius: 10px; padding: 28px; box-sizing: border-box; }
+
+.form-projeto { display: flex; flex-direction: column; }
+.form-projeto label { color: #a79fc2; font-size: 13px; margin-top: 10px; }
+.form-projeto input, .form-projeto select, .form-projeto textarea {
+    width: 100%; box-sizing: border-box; background: #0b0a10; border: 1px solid #2b2735;
+    color: #f1eef9; border-radius: 5px; padding: 10px; margin-top: 5px; font-family: inherit;
+}
+.form-projeto textarea { resize: vertical; }
+
+.botoes-modal-projeto { display: flex; gap: 10px; margin-top: 20px; }
+.botoes-modal-projeto .botao-cancelar { flex: 1; background: transparent; color: #a79fc2; border: 1px solid #2b2735; border-radius: 5px; padding: 10px; cursor: pointer; }
+.botoes-modal-projeto .button-primary { flex: 1; }
+
 @media (max-width: 600px) { .header { align-items: stretch; flex-direction: column; } .button-primary { width: 100%; } }
