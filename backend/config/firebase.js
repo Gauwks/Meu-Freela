@@ -6,9 +6,11 @@ import path from "path";
 
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
 
-const serviceAccount = JSON.parse(
-  readFileSync(path.join(__dirname, "../serviceAccountKey.json"))
-);
+const serviceAccount = process.env.FIREBASE_SERVICE_ACCOUNT
+  ? JSON.parse(process.env.FIREBASE_SERVICE_ACCOUNT)
+  : JSON.parse(
+      readFileSync(path.join(__dirname, "../serviceAccountKey.json"))
+    );
 
 initializeApp({
   credential: cert(serviceAccount)
