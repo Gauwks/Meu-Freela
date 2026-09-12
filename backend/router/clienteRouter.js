@@ -39,7 +39,7 @@ router.post("/", autenticar, async (req, res) => {
          });
 
          res.status(201).send({
-            id: novoCliente, nome, email, telefone
+            id: novoCliente.id, nome, email, telefone
         });
     } catch (error){
         res.status(500).send({mensagem: "Falha ao cadastrar cliente!", erro: error.message});
@@ -64,4 +64,3 @@ router.delete("/:id", autenticar, async (req, res) => {
 });
 
 export default router;
-
